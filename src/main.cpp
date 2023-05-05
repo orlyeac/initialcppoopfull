@@ -13,15 +13,16 @@ int main() {
 void testpoint() {
     try {
         Point point0;
-        if (!(point0.getx() == 0 && point0.gety() == 0)) throw 1;
-        cout << "(" << point0.getx() << ", " << point0.gety() << ")" << endl;
-        point0.setx(3);
-        point0.sety(4);
-        if (!(point0.getx() == 3 && point0.gety() == 4)) throw 1;
-        cout << "(" << point0.getx() << ", " << point0.gety() << ")" << endl;
-        cout << "test point 0001: ok" << endl;
+        Point point1(1, 1);
+        if (!(point1.getx() == 1 && point1.gety() == 1)) throw 1;
+        cout << point1 << endl;
+        point1.setx(3).sety(4);
+        if (!(point1.getx() == 3 && point1.gety() == 4)) throw 1;
+        cout << point1 << endl;
+        if (!(point0.distance(point1) == 5)) throw 1;
+        cout << "test point: ok" << endl;
     }
     catch (...) {
-        cout << "test point 0001: failed" << endl;
+        cout << "test point: failed" << endl;
     }
 }

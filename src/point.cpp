@@ -1,22 +1,39 @@
 #include "point.h"
+#include <cmath>
 
 Point::Point() {
-    x = 0;
-    y = 0;
+    this->x = 0;
+    this->y = 0;
 }
 
-void Point::setx(double x1) {
-    x = x1;
+Point::Point(double x, double y) {
+    this->x = x;
+    this->y = y;
 }
 
-double Point::getx() {
-    return x;
+Point & Point::setx(double x) {
+    this->x = x;
+    return *this;
 }
 
-void Point::sety(double y1) {
-    y = y1;
+double Point::getx() const {
+    return this->x;
 }
 
-double Point::gety() {
-    return y;
+Point & Point::sety(double y) {
+    this->y = y;
+    return *this;
+}
+
+double Point::gety() const {
+    return this->y;
+}
+
+double Point::distance(const Point & p) {
+    return sqrt(pow(this->x - p.x, 2) + pow(this->y - p.y, 2));
+}
+
+std::ostream & operator<<(std::ostream & f, const Point & p) {
+    f << "(" << p.x << ", " << p.y << ")";
+    return f;
 }

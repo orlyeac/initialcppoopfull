@@ -1,13 +1,18 @@
 #ifndef POINT_H
 #define POINT_H
 
+#include <ostream>
+
 class Point {
     public:
         Point();
-        void setx(double);
-        double getx();
-        void sety(double);
-        double gety();
+        Point(double, double);
+        Point & setx(double);
+        double getx() const;
+        Point & sety(double);
+        double gety() const;
+        double distance(const Point &);
+        friend std::ostream & operator<<(std::ostream &, const Point &);
     private:
         double x;
         double y;
