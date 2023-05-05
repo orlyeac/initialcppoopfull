@@ -9,7 +9,7 @@ FLA := -Iinclude -MMD -MP -Wall
 FLA1 := -Llib -pie -fpie
 FLA3 := -lm
 
-SRC := main.cpp 
+SRC := main.cpp point.cpp 
 
 OBJ := $(SRC:.cpp=.o)
 
