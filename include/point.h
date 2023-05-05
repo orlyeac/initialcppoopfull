@@ -12,6 +12,8 @@ class Point {
         Point & sety(double);
         double gety() const;
         double distance(const Point &);
+        bool operator==(const Point &);
+        bool operator!=(const Point &);
         friend std::ostream & operator<<(std::ostream &, const Point &);
     private:
         double x;

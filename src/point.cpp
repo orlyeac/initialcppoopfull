@@ -33,6 +33,14 @@ double Point::distance(const Point & p) {
     return sqrt(pow(this->x - p.x, 2) + pow(this->y - p.y, 2));
 }
 
+bool Point::operator==(const Point & p) {
+    return this->x == p.x && this->y == p.y;
+}
+
+bool Point::operator!=(const Point & p) {
+    return this->x != p.x || this->y != p.y;
+}
+
 std::ostream & operator<<(std::ostream & f, const Point & p) {
     f << "(" << p.x << ", " << p.y << ")";
     return f;
