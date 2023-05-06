@@ -1,12 +1,18 @@
 #include <iostream>
 #include "point.h"
+#include "shape.h"
 
 using namespace std;
 
 void testpoint();
 
+void testshape();
+
 int main() {
     testpoint();
+    
+    testshape();
+
     return 0;
 }
 
@@ -33,4 +39,19 @@ void testpoint() {
     catch (...) {
         cout << "test point: failed" << endl;
     }
+}
+
+void testshape() {
+    try {
+        Point point0;
+        Point point1(3, 4);
+        Shape shape0(point0);
+        if (!(shape0.getcenter() == point0)) throw 1;
+        shape0.setcenter(point1);
+        if (!(shape0.getcenter() == point1)) throw 1;
+        cout << "test shape: ok" << endl;
+    }
+    catch (...) {
+        cout << "test shape: failed" << endl;
+    }    
 }
