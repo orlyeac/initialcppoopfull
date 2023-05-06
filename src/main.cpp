@@ -7,6 +7,8 @@ using namespace std;
 
 void testpoint();
 
+void outputshape(const Shape &);
+void modifyshape(Shape &);
 void testshape();
 
 void testrectangle();
@@ -46,14 +48,24 @@ void testpoint() {
     }
 }
 
+void outputshape(const Shape & shape) {
+    cout << "(" << shape.getcenter() << ")" << endl;
+}
+
+void modifyshape(Shape & shape) {
+    shape.getcenter().setx(3);
+    shape.getcenter().sety(4);
+}
+
 void testshape() {
     try {
-        Point point0;
-        Point point1(3, 4);
-        Shape shape0(point0);
-        if (!(shape0.getcenter() == point0)) throw 1;
-        shape0.setcenter(point1);
-        if (!(shape0.getcenter() == point1)) throw 1;
+        Point point;
+        Shape shape(point);
+        if (!(shape.getcenter() == point)) throw 1;
+        outputshape(shape);
+        modifyshape(shape);
+        if (!(shape.getcenter().getx() == 3 && shape.getcenter().gety() == 4)) throw 1;
+        outputshape(shape);
         cout << "test shape: ok" << endl;
     }
     catch (...) {
@@ -65,12 +77,12 @@ void testrectangle() {
     try {
         Point point0;
         Point point1(3, 4);
-        Rectangle rectangle0(point0);
-        if (!(rectangle0.getcenter() == point0 && rectangle0.getheight() == 1 && rectangle0.getwidth() == 3)) throw 1;
-        rectangle0.setcenter(point1);
-        rectangle0.setheight(3);
-        rectangle0.setwidth(1);
-        if (!(rectangle0.getcenter() == point1 && rectangle0.getheight() == 3 && rectangle0.getwidth() == 1)) throw 1;
+        Rectangle rectangle(point0);
+        if (!(rectangle.getcenter() == point0 && rectangle.getheight() == 1 && rectangle.getwidth() == 3)) throw 1;
+        rectangle.setcenter(point1);
+        rectangle.setheight(3);
+        rectangle.setwidth(1);
+        if (!(rectangle.getcenter() == point1 && rectangle.getheight() == 3 && rectangle.getwidth() == 1)) throw 1;
         cout << "test rectangle: ok" << endl;
     }
     catch (...) {
