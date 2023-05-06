@@ -1,6 +1,7 @@
 #include <iostream>
 #include "point.h"
 #include "shape.h"
+#include "rectangle.h"
 
 using namespace std;
 
@@ -8,10 +9,14 @@ void testpoint();
 
 void testshape();
 
+void testrectangle();
+
 int main() {
     testpoint();
     
     testshape();
+
+    testrectangle();
 
     return 0;
 }
@@ -53,5 +58,22 @@ void testshape() {
     }
     catch (...) {
         cout << "test shape: failed" << endl;
+    }    
+}
+
+void testrectangle() {
+    try {
+        Point point0;
+        Point point1(3, 4);
+        Rectangle rectangle0(point0);
+        if (!(rectangle0.getcenter() == point0 && rectangle0.getheight() == 1 && rectangle0.getwidth() == 3)) throw 1;
+        rectangle0.setcenter(point1);
+        rectangle0.setheight(3);
+        rectangle0.setwidth(1);
+        if (!(rectangle0.getcenter() == point1 && rectangle0.getheight() == 3 && rectangle0.getwidth() == 1)) throw 1;
+        cout << "test rectangle: ok" << endl;
+    }
+    catch (...) {
+        cout << "test rectangle: failed" << endl;
     }    
 }
