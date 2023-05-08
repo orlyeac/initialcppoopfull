@@ -157,6 +157,7 @@ void testsquare() {
         prectangle->setwidth(4);
         if (!(prectangle->getheight() == 4 &&
                 prectangle->getwidth() == 4)) throw 1;
+        delete prectangle;
         cout << "test square: ok" << endl;
     }
     catch (...) {
