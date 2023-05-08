@@ -3,6 +3,7 @@
 #include "shape.h"
 #include "rectangle.h"
 #include "circle.h"
+#include "square.h"
 
 using namespace std;
 
@@ -16,6 +17,8 @@ void testrectangle();
 
 void testcircle();
 
+void testsquare();
+
 int main() {
     testpoint();
     
@@ -24,6 +27,8 @@ int main() {
     testrectangle();
 
     testcircle();
+
+    testsquare();
 
     return 0;
 }
@@ -121,5 +126,40 @@ void testcircle() {
     }
     catch (...) {
         cout << "test circle: failed" << endl;
+    }    
+}
+
+void testsquare() {
+    try {
+        Point point0;
+        Point point1(3, 4);
+        Square square(point0);
+        if (!(square.getcenter() == point0 &&
+                square.getheight() == 1 &&
+                square.getwidth() == 1)) throw 1;
+        square.setcenter(point1);
+        square.setheight(3);
+        if (!(square.getcenter() == point1 &&
+                square.getheight() == 3 &&
+                square.getwidth() == 3)) throw 1;
+        square.setwidth(4);
+        if (!(square.getheight() == 4 &&
+                square.getwidth() == 4)) throw 1;
+        Rectangle * prectangle = new Square(point0);
+        if (!(prectangle->getcenter() == point0 &&
+                prectangle->getheight() == 1 &&
+                prectangle->getwidth() == 1)) throw 1;
+        prectangle->setcenter(point1);
+        prectangle->setheight(3);
+        if (!(prectangle->getcenter() == point1 &&
+                prectangle->getheight() == 3 &&
+                prectangle->getwidth() == 3)) throw 1;
+        prectangle->setwidth(4);
+        if (!(prectangle->getheight() == 4 &&
+                prectangle->getwidth() == 4)) throw 1;
+        cout << "test square: ok" << endl;
+    }
+    catch (...) {
+        cout << "test square: failed" << endl;
     }    
 }

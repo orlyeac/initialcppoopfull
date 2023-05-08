@@ -6,9 +6,9 @@
 class Rectangle : public Shape {
     public:
         Rectangle(const Point &);
-        void setheight(double);
+        virtual void setheight(double);
         double getheight() const;
-        void setwidth(double);
+        virtual void setwidth(double);
         double getwidth() const;
     private:
         double height;
