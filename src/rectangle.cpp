@@ -20,3 +20,11 @@ void Rectangle::setwidth(double width) {
 double Rectangle::getwidth() const {
     return this->width;
 }
+
+double Rectangle::getarea() {
+    return this->height * this->width;
+}
+
+double Rectangle::getperimeter() {
+    return 2 * (this->height + this->width);
+}

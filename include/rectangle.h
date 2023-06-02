@@ -10,6 +10,8 @@ class Rectangle : public Shape {
         double getheight() const;
         virtual void setwidth(double);
         double getwidth() const;
+        double getarea();
+        double getperimeter();
     private:
         double height;
         double width;

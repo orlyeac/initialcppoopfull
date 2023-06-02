@@ -11,3 +11,11 @@ void Circle::setradius(double radius) {
 double Circle::getradius() const {
     return this->radius;
 }
+
+double Circle::getarea() {
+    return PI * this->radius * this->radius;
+}
+
+double Circle::getperimeter() {
+    return 2 * PI * this->radius;
+}

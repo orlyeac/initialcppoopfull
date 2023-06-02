@@ -5,10 +5,13 @@
 
 class Shape {
     public:
-        Shape(const Point &);
         void setcenter(const Point &);
         const Point & getcenter() const;
         Point & getcenter();
+        virtual double getarea() = 0;
+        virtual double getperimeter() = 0;
+    protected:
+        Shape(const Point &);
     private:
         Point center;
 };
