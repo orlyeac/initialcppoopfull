@@ -1,9 +1,11 @@
 #include <iostream>
+#include <vector>
 #include "point.h"
 #include "shape.h"
 #include "rectangle.h"
 #include "circle.h"
 #include "square.h"
+#include "rotatable.h"
 
 #define EPSILON 0.00001
 
@@ -21,7 +23,10 @@ void testcircle();
 
 void testsquare();
 
+void testrotatable();
+
 int main() {
+
     testpoint();
     
     testshape();
@@ -31,6 +36,8 @@ int main() {
     testcircle();
 
     testsquare();
+
+    testrotatable();
 
     return 0;
 }
@@ -191,5 +198,22 @@ void testsquare() {
     }
     catch (...) {
         cout << "test square: failed" << endl;
+    }    
+}
+
+void testrotatable() {
+    try {
+        Rotatable rotatable;
+        if (!(rotatable.getangle() == 0)) throw 1;
+        Rotatable rotatable0(50);
+        if (!(rotatable0.getangle() == 50)) throw 1;
+        Rotatable rotatable1 = rotatable0;
+        rotatable0.setangle(100);
+        if (!(rotatable0.getangle() == 100)) throw 1;
+        if (!(rotatable1.getangle() == 50)) throw 1;
+        cout << "test rotatable: ok" << endl;
+    }
+    catch (...) {
+        cout << "test rotatable: failed" << endl;
     }    
 }
