@@ -5,6 +5,7 @@
 
 class Shape {
     public:
+        virtual ~Shape();
         void setcenter(const Point &);
         const Point & getcenter() const;
         Point & getcenter();

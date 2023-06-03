@@ -4,19 +4,17 @@
 #include "shape.h"
 #include "rotatable.h"
 
-class Rectangle : public Shape, public Rotatable {
+class Rectangle : public Shape {
     public:
         Rectangle(const Point &);
-        Rectangle(const Rectangle &);
-        Rectangle(Rectangle &&);
+        virtual ~Rectangle();
         virtual void setheight(double);
         double getheight() const;
         virtual void setwidth(double);
         double getwidth() const;
         double getarea();
         double getperimeter();
-        void operator=(const Rectangle &);
-        void operator=(Rectangle &&);
+        Rotatable rotatable;
     private:
         double height;
         double width;

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include "point.h"
 #include "shape.h"
 #include "rectangle.h"
@@ -26,7 +25,6 @@ void testsquare();
 void testrotatable();
 
 int main() {
-
     testpoint();
     
     testshape();

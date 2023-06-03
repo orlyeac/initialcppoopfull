@@ -4,6 +4,10 @@ Shape::Shape(const Point & center) {
     this->center = center;
 }
 
+Shape::~Shape() {
+
+}
+        
 void Shape::setcenter(const Point & center) {
     this->center = center;
 }
