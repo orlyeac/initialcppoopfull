@@ -29,15 +29,18 @@ double Rotatable::getangle() const {
     return *(this->angle);
 }
 
-void Rotatable::operator=(const Rotatable & rotatable) {
+Rotatable & Rotatable::operator=(const Rotatable & rotatable) {
+    double * tmp = new double(*(rotatable.angle));
     delete this->angle;
-    this->angle = new double(*(rotatable.angle));
+    this->angle = tmp;
+    return *this;
 }
 
-void Rotatable::operator=(Rotatable && rotatable) {
+Rotatable & Rotatable::operator=(Rotatable && rotatable) {
     if (this != &rotatable) {
         double * tmp = this->angle;
         this->angle = rotatable.angle;
         rotatable.angle = tmp;
     }
+    return *this;
 }

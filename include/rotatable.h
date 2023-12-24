@@ -10,8 +10,8 @@ class Rotatable {
         ~Rotatable();
         void setangle(double);
         double getangle() const;
-        void operator=(const Rotatable &);
-        void operator=(Rotatable &&);
+        Rotatable & operator=(const Rotatable &);
+        Rotatable & operator=(Rotatable &&);
     private:
         double * angle;
 };
